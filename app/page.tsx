@@ -62,7 +62,7 @@ export default function HomePage() {
               <p className="text-muted-foreground mt-2">Idosos no Brasil</p>
             </div>
             <div>
-              <h3 className="text-5xl font-bold text-primary mb-2">1 em 3</h3>
+              <h3 className="text-5xl font-bold text-primary mb-2">1 em cada 3</h3>
               <p className="text-xl font-semibold text-foreground">Sofre abandono ou negligência</p>
             </div>
             <div>
@@ -78,7 +78,7 @@ export default function HomePage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">
-            Por que escolher o ConnectCare?
+            Por que escolher a ConnectCare?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

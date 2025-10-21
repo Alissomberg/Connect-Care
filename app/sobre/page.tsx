@@ -1,13 +1,12 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Target, Eye, Award } from "lucide-react"
+import { Target, Award, Users, Heart, Shield } from "lucide-react"
 
 export default function SobrePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Sobre Nós</h1>
@@ -18,97 +17,150 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Nossa História */}
-      <section className="py-20">
+      <section className="py-20 bg-purple-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-primary">Nossa História</h2>
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  O ConnectCare nasceu da necessidade de resolver um problema crítico: a dificuldade de famílias
-                  encontrarem cuidadores confiáveis e qualificados para seus entes queridos.
-                </p>
-                <p>
-                  Com mais de 33 milhões de idosos no Brasil e 1 em cada 3 sofrendo algum tipo de abandono ou
-                  negligência, percebemos que era urgente criar uma solução que conectasse cuidado com segurança.
-                </p>
-                <p>
-                  Hoje, somos uma ponte entre mais de 840 mil cuidadores profissionais e milhares de famílias que buscam
-                  tranquilidade e qualidade de vida para seus familiares.
-                </p>
-              </div>
-            </div>
-            <div className="rounded-3xl overflow-hidden">
-              <img src="/equipe-de-cuidadores-diversos-e-felizes.jpg" alt="Equipe ConnectCare" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Missão, Visão e Valores */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-16 text-primary">Problema</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-8 rounded-3xl shadow-lg border border-border">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-primary" />
+            {/* Idosos */}
+            <div className="space-y-4 text-foreground">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-bold">Idosos: quem mais sofre com a desconexão</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Nossa Missão</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Conectar famílias e cuidadores profissionais de forma segura, proporcionando cuidado de qualidade e
-                tranquilidade para todos os envolvidos.
-              </p>
+              <ul className="space-y-3 text-lg">
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    <strong>33 milhões</strong> no Brasil
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    <strong>1 em cada 3</strong> sofre abandono ou negligência
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Falta de <strong>cuidadores confiáveis</strong>
+                  </span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-card p-8 rounded-3xl shadow-lg border border-border">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-primary" />
+            {/* Famílias */}
+            <div className="space-y-4 text-foreground">
+              <div className="flex items-center gap-3 mb-4">
+                <Heart className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-bold">Famílias: insegurança e desorganização</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Nossa Visão</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Ser a principal plataforma de conexão entre cuidadores e famílias no Brasil, transformando o cuidado de
-                idosos em uma experiência segura e humanizada.
-              </p>
+              <ul className="space-y-3 text-lg">
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Dificuldade para <strong>encontrar profissionais qualificados</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Dependência de <strong>grupos informais</strong> e <strong>indicações</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    <strong>Insegurança</strong> ao contratar cuidadores
+                  </span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-card p-8 rounded-3xl shadow-lg border border-border">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-primary" />
+            {/* Cuidadores */}
+            <div className="space-y-4 text-foreground">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-bold">Cuidadores: falta de oportunidade e visibilidade</h3>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Nossos Valores</h3>
-              <ul className="text-muted-foreground leading-relaxed space-y-2">
-                <li>• Segurança e confiança</li>
-                <li>• Profissionalismo</li>
-                <li>• Empatia e cuidado</li>
-                <li>• Transparência</li>
-                <li>• Inovação</li>
+              <ul className="space-y-3 text-lg">
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Poucas <strong>oportunidades de trabalho</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Falta de <strong>visibilidade profissional</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-2xl text-primary">•</span>
+                  <span>
+                    Dificuldade para <strong>comprovar experiência e confiança</strong>
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Números */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-primary">ConnectCare em Números</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">+840k</div>
-              <p className="text-lg text-muted-foreground">Cuidadores Cadastrados</p>
+          <h2 className="text-5xl font-bold text-center mb-8 text-primary">Solução</h2>
+          <p className="text-2xl text-center mb-4 text-foreground max-w-4xl mx-auto">
+            A <strong className="text-primary">ConnectCare</strong> é uma{" "}
+            <strong className="text-primary">plataforma web</strong> que conecta{" "}
+            <strong className="text-primary">famílias e cuidadores de idosos</strong> de forma{" "}
+            <strong className="text-primary">segura, rápida e organizada</strong>.
+          </p>
+          <p className="text-xl text-center mb-16 text-muted-foreground max-w-4xl mx-auto">
+            Nosso sistema centraliza <strong>cadastro, busca, comunicação e agendamento</strong>, tornando o processo
+            mais humano e confiável para todos os envolvidos.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-card p-6 rounded-2xl border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Plataforma digital</h3>
+              <p className="text-muted-foreground">com perfis verificados e avaliações reais.</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">+10k</div>
-              <p className="text-lg text-muted-foreground">Famílias Atendidas</p>
+
+            <div className="bg-card p-6 rounded-2xl border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Busca inteligente</h3>
+              <p className="text-muted-foreground">por localização, disponibilidade e especialização.</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">98%</div>
-              <p className="text-lg text-muted-foreground">Taxa de Satisfação</p>
+
+            <div className="bg-card p-6 rounded-2xl border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Heart className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Chat integrado</h3>
+              <p className="text-muted-foreground">para comunicação segura entre família e cuidador.</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">24/7</div>
-              <p className="text-lg text-muted-foreground">Suporte Disponível</p>
+
+            <div className="bg-card p-6 rounded-2xl border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Agendamento e pagamento online</h3>
+              <p className="text-muted-foreground">com suporte ao Pix e boleto.</p>
+            </div>
+
+            <div className="bg-card p-6 rounded-2xl border border-border">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Ambiente confiável</h3>
+              <p className="text-muted-foreground">com histórico de serviços e reputação dos cuidadores.</p>
             </div>
           </div>
         </div>
