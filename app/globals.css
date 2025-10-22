@@ -123,4 +123,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Adiciona padding bottom para mobile navigation */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

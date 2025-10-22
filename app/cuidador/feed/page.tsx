@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { FeedSidebar } from "@/components/feed-sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,11 +14,10 @@ import {
   DollarSign,
   Calendar,
   User,
-  Settings,
-  LogOut,
   Briefcase,
   MessageSquare,
   Bell,
+  Settings,
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
@@ -85,259 +85,209 @@ export default function CuidadorFeedPage() {
   const oportunidadesFiltradas =
     filtroUrgencia === "todas" ? oportunidades : oportunidades.filter((op) => op.urgencia === filtroUrgencia)
 
+  const menuItems = [
+    { href: "/cuidador/feed", icon: Briefcase, label: "Oportunidades", active: true },
+    { href: "/cuidador/minhas-propostas", icon: Heart, label: "Propostas" },
+    { href: "/cuidador/perfil", icon: User, label: "Perfil" },
+    { href: "/cuidador/mensagens", icon: MessageSquare, label: "Mensagens" },
+  ]
+
+  const statsContent = (
+    <>
+      <h3 className="font-bold text-sm mb-3 text-foreground">Suas Estatísticas</h3>
+      <div className="space-y-3">
+        <div>
+          <p className="text-xs text-muted-foreground">Propostas Enviadas</p>
+          <p className="text-xl font-bold text-primary">12</p>
+        </div>
+        <div>
+          <p className="text-xs text-muted-foreground">Taxa de Resposta</p>
+          <p className="text-xl font-bold text-primary">85%</p>
+        </div>
+        <div>
+          <p className="text-xs text-muted-foreground">Avaliação</p>
+          <p className="text-xl font-bold text-primary">4.8 ⭐</p>
+        </div>
+      </div>
+    </>
+  )
+
   return (
     <div className="min-h-screen flex flex-col bg-secondary/20">
       <Header />
 
-      {/* Top Bar com perfil */}
-      <div className="bg-card border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Avatar className="w-12 h-12">
-                <AvatarImage src="/placeholder.svg?height=48&width=48" />
-                <AvatarFallback className="bg-primary text-primary-foreground">MC</AvatarFallback>
-              </Avatar>
-              <div>
-                <h2 className="font-bold text-foreground">Maria Cuidadora</h2>
-                <p className="text-sm text-muted-foreground">Cuidadora Profissional</p>
+      <div className="flex flex-1">
+        <FeedSidebar menuItems={menuItems} statsContent={statsContent} />
+
+        <div className="flex-1 lg:ml-64">
+          <div className="bg-card border-b border-border">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage src="/placeholder.svg?height=48&width=48" />
+                    <AvatarFallback className="bg-primary text-primary-foreground">MC</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h2 className="font-bold text-foreground">Maria Cuidadora</h2>
+                    <p className="text-sm text-muted-foreground">Cuidadora Profissional</p>
+                  </div>
+                </div>
+
+                <div className="hidden md:flex items-center gap-2">
+                  <Button variant="ghost" size="icon" className="rounded-full">
+                    <Bell className="w-5 h-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="rounded-full">
+                    <MessageSquare className="w-5 h-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="rounded-full" asChild>
+                    <Link href="/cuidador/perfil">
+                      <Settings className="w-5 h-5" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
-
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Bell className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <MessageSquare className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                <Link href="/cuidador/perfil">
-                  <Settings className="w-5 h-5" />
-                </Link>
-              </Button>
-            </div>
           </div>
-        </div>
-      </div>
 
-      <div className="flex-1 py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar */}
-            <aside className="lg:col-span-1">
-              <Card className="p-6 rounded-3xl border-border">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-bold text-lg mb-4 text-foreground">Menu</h3>
-                    <nav className="space-y-2">
-                      <Link
-                        href="/cuidador/feed"
-                        className="flex items-center gap-3 p-3 rounded-xl bg-primary text-primary-foreground font-semibold"
-                      >
-                        <Briefcase className="w-5 h-5" />
-                        Oportunidades
-                      </Link>
-                      <Link
-                        href="/cuidador/minhas-propostas"
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary text-foreground"
-                      >
-                        <Heart className="w-5 h-5" />
-                        Minhas Propostas
-                      </Link>
-                      <Link
-                        href="/cuidador/perfil"
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary text-foreground"
-                      >
-                        <User className="w-5 h-5" />
-                        Meu Perfil
-                      </Link>
-                      <Link
-                        href="/cuidador/mensagens"
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary text-foreground"
-                      >
-                        <MessageSquare className="w-5 h-5" />
-                        Mensagens
-                      </Link>
-                    </nav>
-                  </div>
+          <div className="py-8 pb-24 lg:pb-8">
+            <div className="container mx-auto px-4">
+              <main>
+                <div className="mb-6">
+                  <h1 className="text-4xl font-bold mb-2 text-foreground">Oportunidades de Trabalho</h1>
+                  <p className="text-muted-foreground mb-6">Encontre as melhores oportunidades para você</p>
 
-                  <div className="pt-6 border-t border-border">
+                  <div className="flex flex-wrap gap-3">
                     <Button
-                      variant="ghost"
-                      className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10"
-                      asChild
+                      variant={filtroUrgencia === "todas" ? "default" : "outline"}
+                      onClick={() => setFiltroUrgencia("todas")}
+                      className="rounded-full"
                     >
-                      <Link href="/">
-                        <LogOut className="w-5 h-5 mr-3" />
-                        Sair
-                      </Link>
+                      Todas
+                    </Button>
+                    <Button
+                      variant={filtroUrgencia === "alta" ? "default" : "outline"}
+                      onClick={() => setFiltroUrgencia("alta")}
+                      className="rounded-full"
+                    >
+                      Urgente
+                    </Button>
+                    <Button
+                      variant={filtroUrgencia === "media" ? "default" : "outline"}
+                      onClick={() => setFiltroUrgencia("media")}
+                      className="rounded-full"
+                    >
+                      Média Urgência
+                    </Button>
+                    <Button
+                      variant={filtroUrgencia === "baixa" ? "default" : "outline"}
+                      onClick={() => setFiltroUrgencia("baixa")}
+                      className="rounded-full"
+                    >
+                      Sem Urgência
                     </Button>
                   </div>
                 </div>
-              </Card>
 
-              {/* Stats Card */}
-              <Card className="p-6 rounded-3xl border-border mt-6">
-                <h3 className="font-bold text-lg mb-4 text-foreground">Suas Estatísticas</h3>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Propostas Enviadas</p>
-                    <p className="text-2xl font-bold text-primary">12</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Taxa de Resposta</p>
-                    <p className="text-2xl font-bold text-primary">85%</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Avaliação</p>
-                    <p className="text-2xl font-bold text-primary">4.8 ⭐</p>
-                  </div>
-                </div>
-              </Card>
-            </aside>
+                <div className="space-y-6">
+                  {oportunidadesFiltradas.map((oportunidade) => (
+                    <Card
+                      key={oportunidade.id}
+                      className="p-6 rounded-3xl border-border hover:shadow-lg transition-shadow"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-start gap-4">
+                          <Avatar className="w-14 h-14">
+                            <AvatarImage src={`/.jpg?height=56&width=56&query=${oportunidade.nomeFamiliar}`} />
+                            <AvatarFallback className="bg-primary/10 text-primary">
+                              {oportunidade.nomeFamiliar
+                                .split(" ")
+                                .map((n) => n[0])
+                                .join("")}
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <h3 className="font-bold text-xl text-foreground mb-1">
+                              Cuidado para {oportunidade.nomePaciente}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">Publicado por {oportunidade.nomeFamiliar}</p>
+                          </div>
+                        </div>
+                        <Badge
+                          variant={oportunidade.urgencia === "alta" ? "destructive" : "secondary"}
+                          className="rounded-full"
+                        >
+                          {oportunidade.urgencia === "alta"
+                            ? "Urgente"
+                            : oportunidade.urgencia === "media"
+                              ? "Média"
+                              : "Normal"}
+                        </Badge>
+                      </div>
 
-            {/* Main Content */}
-            <main className="lg:col-span-3">
-              {/* Header e Filtros */}
-              <div className="mb-6">
-                <h1 className="text-4xl font-bold mb-2 text-foreground">Oportunidades de Trabalho</h1>
-                <p className="text-muted-foreground mb-6">Encontre as melhores oportunidades para você</p>
+                      <p className="text-foreground mb-4 leading-relaxed">{oportunidade.descricao}</p>
 
-                {/* Filtros */}
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    variant={filtroUrgencia === "todas" ? "default" : "outline"}
-                    onClick={() => setFiltroUrgencia("todas")}
-                    className="rounded-full"
-                  >
-                    Todas
-                  </Button>
-                  <Button
-                    variant={filtroUrgencia === "alta" ? "default" : "outline"}
-                    onClick={() => setFiltroUrgencia("alta")}
-                    className="rounded-full"
-                  >
-                    Urgente
-                  </Button>
-                  <Button
-                    variant={filtroUrgencia === "media" ? "default" : "outline"}
-                    onClick={() => setFiltroUrgencia("media")}
-                    className="rounded-full"
-                  >
-                    Média Urgência
-                  </Button>
-                  <Button
-                    variant={filtroUrgencia === "baixa" ? "default" : "outline"}
-                    onClick={() => setFiltroUrgencia("baixa")}
-                    className="rounded-full"
-                  >
-                    Sem Urgência
-                  </Button>
-                </div>
-              </div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {oportunidade.condicoes.map((condicao, index) => (
+                          <Badge key={index} variant="outline" className="rounded-full">
+                            {condicao}
+                          </Badge>
+                        ))}
+                      </div>
 
-              {/* Lista de Oportunidades */}
-              <div className="space-y-6">
-                {oportunidadesFiltradas.map((oportunidade) => (
-                  <Card
-                    key={oportunidade.id}
-                    className="p-6 rounded-3xl border-border hover:shadow-lg transition-shadow"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-start gap-4">
-                        <Avatar className="w-14 h-14">
-                          <AvatarImage src={`/.jpg?height=56&width=56&query=${oportunidade.nomeFamiliar}`} />
-                          <AvatarFallback className="bg-primary/10 text-primary">
-                            {oportunidade.nomeFamiliar
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <h3 className="font-bold text-xl text-foreground mb-1">
-                            Cuidado para {oportunidade.nomePaciente}
-                          </h3>
-                          <p className="text-sm text-muted-foreground">Publicado por {oportunidade.nomeFamiliar}</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <MapPin className="w-4 h-4 text-primary" />
+                          <span className="text-sm">{oportunidade.localizacao}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <User className="w-4 h-4 text-primary" />
+                          <span className="text-sm">{oportunidade.idade} anos</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Clock className="w-4 h-4 text-primary" />
+                          <span className="text-sm">{oportunidade.horario}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <DollarSign className="w-4 h-4 text-primary" />
+                          <span className="text-sm font-semibold text-primary">{oportunidade.valorHora}</span>
                         </div>
                       </div>
-                      <Badge
-                        variant={oportunidade.urgencia === "alta" ? "destructive" : "secondary"}
-                        className="rounded-full"
-                      >
-                        {oportunidade.urgencia === "alta"
-                          ? "Urgente"
-                          : oportunidade.urgencia === "media"
-                            ? "Média"
-                            : "Normal"}
-                      </Badge>
-                    </div>
 
-                    <p className="text-foreground mb-4 leading-relaxed">{oportunidade.descricao}</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar className="w-4 h-4" />
+                          {oportunidade.dataPublicacao}
+                        </div>
+                        <div className="flex gap-3">
+                          <Button variant="outline" className="rounded-full bg-transparent">
+                            <MessageSquare className="w-4 h-4 mr-2" />
+                            Entrar em Contato
+                          </Button>
+                          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
+                            Enviar Proposta
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
 
-                    {/* Condições */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {oportunidade.condicoes.map((condicao, index) => (
-                        <Badge key={index} variant="outline" className="rounded-full">
-                          {condicao}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    {/* Detalhes */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{oportunidade.localizacao}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <User className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{oportunidade.idade} anos</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Clock className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{oportunidade.horario}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <DollarSign className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-semibold text-primary">{oportunidade.valorHora}</span>
-                      </div>
-                    </div>
-
-                    {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-                        {oportunidade.dataPublicacao}
-                      </div>
-                      <div className="flex gap-3">
-                        <Button variant="outline" className="rounded-full bg-transparent">
-                          <MessageSquare className="w-4 h-4 mr-2" />
-                          Entrar em Contato
-                        </Button>
-                        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                          Enviar Proposta
-                        </Button>
-                      </div>
-                    </div>
+                {oportunidadesFiltradas.length === 0 && (
+                  <Card className="p-12 rounded-3xl border-border text-center">
+                    <Briefcase className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Nenhuma oportunidade encontrada</h3>
+                    <p className="text-muted-foreground">Tente ajustar os filtros para ver mais resultados.</p>
                   </Card>
-                ))}
-              </div>
-
-              {oportunidadesFiltradas.length === 0 && (
-                <Card className="p-12 rounded-3xl border-border text-center">
-                  <Briefcase className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="text-xl font-bold mb-2 text-foreground">Nenhuma oportunidade encontrada</h3>
-                  <p className="text-muted-foreground">Tente ajustar os filtros para ver mais resultados.</p>
-                </Card>
-              )}
-            </main>
+                )}
+              </main>
+            </div>
           </div>
+
+          <Footer />
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }
