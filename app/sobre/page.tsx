@@ -1,8 +1,47 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Target, Award, Users, Heart, Shield } from "lucide-react"
+import Image from "next/image"
 
 export default function SobrePage() {
+  const teamMembers = [
+    {
+      name: "Fabio",
+      role: "CEO - Diretor Executivo",
+      image: "/team/fabio.jpg",
+    },
+    {
+      name: "Alissomberg",
+      role: "CTO - Diretor de Tecnologia",
+      image: "/team/alissomberg.jpg",
+    },
+    {
+      name: "Argeu",
+      role: "CO CTO - Co Diretor de Tecnologia",
+      image: "/team/argeu.jpg",
+    },
+    {
+      name: "Kauã",
+      role: "CMO - Diretor de Marketing",
+      image: "/team/kaua.jpg",
+    },
+    {
+      name: "Evelyn",
+      role: "CXO - Diretora de Experiência",
+      image: "/team/evelyn.jpg",
+    },
+    {
+      name: "Miguel",
+      role: "COO - Diretor de Operações",
+      image: "/team/miguel.jpg",
+    },
+    {
+      name: "Vitor",
+      role: "CDO - Diretor de Design",
+      image: "/team/vitor.jpg",
+    },
+  ]
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -162,6 +201,38 @@ export default function SobrePage() {
               <h3 className="text-xl font-bold mb-2 text-foreground">Ambiente confiável</h3>
               <p className="text-muted-foreground">com histórico de serviços e reputação dos cuidadores.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-purple-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-6 text-primary">Nossa Equipe</h2>
+          <p className="text-xl text-center mb-16 text-muted-foreground max-w-3xl mx-auto">
+            Conheça as pessoas dedicadas que tornam a ConnectCare possível
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {teamMembers.map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="aspect-square relative bg-gray-100">
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{member.name}</h3>
+                  <p className="text-primary font-semibold">{member.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
