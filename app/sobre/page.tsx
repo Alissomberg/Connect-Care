@@ -151,7 +151,7 @@ export default function SobrePage() {
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-8 text-primary">Solução</h2>
           <p className="text-2xl text-center mb-4 text-foreground max-w-4xl mx-auto">
-            A <strong className="text-primary">ConnectCare</strong> é uma{" "}
+            A <strong className="text-primary">VIRLA</strong> é uma{" "}
             <strong className="text-primary">plataforma web</strong> que conecta{" "}
             <strong className="text-primary">famílias e cuidadores de idosos</strong> de forma{" "}
             <strong className="text-primary">segura, rápida e organizada</strong>.
@@ -209,7 +209,7 @@ export default function SobrePage() {
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-6 text-primary">Nossa Equipe</h2>
           <p className="text-xl text-center mb-16 text-muted-foreground max-w-3xl mx-auto">
-            Conheça as pessoas dedicadas que tornam a ConnectCare possível
+            Conheça as pessoas dedicadas que tornam a VIRLA possível
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">

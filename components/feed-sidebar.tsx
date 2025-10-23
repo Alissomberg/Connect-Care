@@ -28,9 +28,9 @@ export function FeedSidebar({ menuItems, statsContent }: FeedSidebarProps) {
           <div className="mb-8 px-2">
             <Link href="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <img src="/logo-connectcare.png" alt="ConnectCare" className="w-6 h-6" />
+                <img src="/logo-connectcare.png" alt="VIRLA" className="w-6 h-6" />
               </div>
-              <span className="font-bold text-lg text-foreground">ConnectCare</span>
+              <span className="font-bold text-lg text-foreground">VIRLA</span>
             </Link>
           </div>
 

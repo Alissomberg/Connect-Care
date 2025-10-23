@@ -14,7 +14,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">ConnectCare</h1>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">VIRLA</h1>
               <p className="text-2xl md:text-3xl mb-8 bg-accent text-accent-foreground inline-block px-6 py-3 rounded-full font-semibold">
                 Conectando cuidado com segurança
               </p>
@@ -77,9 +77,7 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">
-            Por que escolher a ConnectCare?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">Por que escolher a VIRLA?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-card p-8 rounded-3xl shadow-lg border border-border">

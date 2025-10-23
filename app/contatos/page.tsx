@@ -58,7 +58,7 @@ export default function ContatosPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1 text-foreground">Email</h3>
-                    <p className="text-muted-foreground">empresa.connectcare@gmail.com</p>
+                    <p className="text-muted-foreground">startup.virla@gmail.com</p>
                   </div>
                 </div>
 
@@ -69,12 +69,12 @@ export default function ContatosPage() {
                   <div>
                     <h3 className="font-bold text-lg mb-1 text-foreground">Instagram</h3>
                     <a
-                      href="https://instagram.com/iconnectcare"
+                      href="https://instagram.com/virlaoficial"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
                     >
-                      @iconnectcare
+                      @virlaoficial
                     </a>
                   </div>
                 </div>

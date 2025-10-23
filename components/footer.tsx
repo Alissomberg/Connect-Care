@@ -12,13 +12,13 @@ export function Footer() {
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center p-2">
                 <Image
                   src="/logo-connectcare.png"
-                  alt="ConnectCare"
+                  alt="VIRLA"
                   width={40}
                   height={40}
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-2xl font-bold">ConnectCare</span>
+              <span className="text-2xl font-bold">VIRLA</span>
             </div>
             <p className="text-primary-foreground/90 max-w-md">
               Conectando cuidado com segurança. Resolvendo um problema preocupante, conectando cuidadores a famílias.
@@ -86,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/80">
-          <p>&copy; 2025 ConnectCare. Todos os direitos reservados.</p>
+          <p>&copy; 2025 VIRLA. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

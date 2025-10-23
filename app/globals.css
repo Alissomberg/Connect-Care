@@ -4,7 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Tema roxo/lavanda inspirado na ConnectCare */
+  /* Atualizando comentário de ConnectCare para VIRLA */
+  /* Tema roxo/lavanda inspirado na VIRLA */
   --background: oklch(0.96 0.02 300); /* Lavanda muito claro */
   --foreground: oklch(0.25 0.08 300); /* Roxo escuro para texto */
   --card: oklch(1 0 0); /* Branco para cards */

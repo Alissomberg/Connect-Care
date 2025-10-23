@@ -15,9 +15,9 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center p-2">
-              <Image src="/logo-connectcare.png" alt="ConnectCare Logo" width={48} height={48} className="w-10 h-10" />
+              <Image src="/logo-connectcare.png" alt="VIRLA Logo" width={48} height={48} className="w-10 h-10" />
             </div>
-            <span className="text-2xl font-bold text-primary">ConnectCare</span>
+            <span className="text-2xl font-bold text-primary">VIRLA</span>
           </Link>
 
           {/* Desktop Navigation */}

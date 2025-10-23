@@ -13,9 +13,9 @@ export default function FAQPage() {
       categoria: "Geral",
       perguntas: [
         {
-          pergunta: "O que é a ConnectCare?",
+          pergunta: "O que é a VIRLA?",
           resposta:
-            "A ConnectCare é uma plataforma digital que conecta famílias que precisam de cuidadores profissionais com cuidadores qualificados e verificados. Oferecemos um ambiente seguro para busca, comunicação e contratação de serviços de cuidado.",
+            "A VIRLA é uma plataforma digital que conecta famílias que precisam de cuidadores profissionais com cuidadores qualificados e verificados. Oferecemos um ambiente seguro para busca, comunicação e contratação de serviços de cuidado.",
         },
         {
           pergunta: "Como funciona a plataforma?",
@@ -116,7 +116,7 @@ export default function FAQPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Perguntas Frequentes</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            Encontre respostas para as dúvidas mais comuns sobre a ConnectCare
+            Encontre respostas para as dúvidas mais comuns sobre a VIRLA
           </p>
         </div>
       </section>
