@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -11,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Heart } from "lucide-react"
+import { Heart, Upload } from "lucide-react"
 
 export default function CuidadorCadastroPage() {
   const router = useRouter()
@@ -30,6 +29,7 @@ export default function CuidadorCadastroPage() {
     confirmarSenha: "",
     aceitarTermos: false,
   })
+  const [arquivoComprovacao, setArquivoComprovacao] = useState<File | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -44,8 +44,13 @@ export default function CuidadorCadastroPage() {
       return
     }
 
-    // Aqui você implementaria a lógica de cadastro real
+    if (!arquivoComprovacao) {
+      alert("Por favor, anexe um documento de comprovação!")
+      return
+    }
+
     console.log("Cadastro cuidador:", formData)
+    console.log("Arquivo de comprovação:", arquivoComprovacao)
     alert("Cadastro realizado com sucesso! Faça login para continuar.")
     router.push("/cuidador/login")
   }
@@ -57,7 +62,6 @@ export default function CuidadorCadastroPage() {
       <section className="py-20 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            {/* Header do Cadastro */}
             <div className="text-center mb-8">
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Heart className="w-10 h-10 text-primary" />
@@ -68,10 +72,8 @@ export default function CuidadorCadastroPage() {
               </p>
             </div>
 
-            {/* Card de Cadastro */}
             <div className="bg-card p-8 rounded-3xl shadow-xl border border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Dados Pessoais */}
                 <div>
                   <h2 className="text-2xl font-bold mb-4 text-foreground">Dados Pessoais</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -151,7 +153,6 @@ export default function CuidadorCadastroPage() {
                   </div>
                 </div>
 
-                {/* Endereço */}
                 <div>
                   <h2 className="text-2xl font-bold mb-4 text-foreground">Endereço</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -202,7 +203,6 @@ export default function CuidadorCadastroPage() {
                   </div>
                 </div>
 
-                {/* Experiência Profissional */}
                 <div>
                   <h2 className="text-2xl font-bold mb-4 text-foreground">Experiência Profissional</h2>
                   <div className="space-y-4">
@@ -235,10 +235,34 @@ export default function CuidadorCadastroPage() {
                         className="rounded-xl"
                       />
                     </div>
+
+                    <div>
+                      <label htmlFor="comprovacao" className="block text-sm font-semibold mb-2 text-foreground">
+                        Comprovação de Experiência *
+                      </label>
+                      <p className="text-xs text-muted-foreground mb-2">
+                        Anexe certificados, diplomas ou documentos que comprovem sua especialização e experiência
+                      </p>
+                      <div className="relative">
+                        <Input
+                          id="comprovacao"
+                          type="file"
+                          accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                          onChange={(e) => setArquivoComprovacao(e.target.files?.[0] || null)}
+                          required
+                          className="rounded-xl file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                        />
+                        {arquivoComprovacao && (
+                          <p className="text-sm text-primary mt-2 flex items-center gap-2">
+                            <Upload className="w-4 h-4" />
+                            {arquivoComprovacao.name}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Senha */}
                 <div>
                   <h2 className="text-2xl font-bold mb-4 text-foreground">Segurança</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -276,7 +300,6 @@ export default function CuidadorCadastroPage() {
                   </div>
                 </div>
 
-                {/* Termos */}
                 <div className="flex items-start gap-2">
                   <Checkbox
                     id="termos"

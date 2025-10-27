@@ -1,26 +1,12 @@
 "use client"
 
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
-import {
-  Users,
-  MapPin,
-  Star,
-  Briefcase,
-  Award,
-  Clock,
-  User,
-  MessageSquare,
-  Bell,
-  Search,
-  FileText,
-  Settings,
-} from "lucide-react"
+import { Users, MapPin, Star, Briefcase, Award, Clock, User, Search, FileText } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { FeedSidebar } from "@/components/feed-sidebar"
@@ -119,10 +105,9 @@ export default function FamiliarFeedPage() {
 
   const menuItems = [
     { href: "/familiar/feed", icon: Search, label: "Buscar", active: true },
-    { href: "/familiar/minhas-solicitacoes", icon: FileText, label: "Solicitações" },
-    { href: "/familiar/meus-cuidadores", icon: Users, label: "Cuidadores" },
+    { href: "/familiar/solicitacoes", icon: FileText, label: "Solicitações" },
+    { href: "/familiar/cuidadores", icon: Users, label: "Cuidadores" },
     { href: "/familiar/perfil", icon: User, label: "Perfil" },
-    { href: "/familiar/mensagens", icon: MessageSquare, label: "Mensagens" },
   ]
 
   const statsContent = (
@@ -144,14 +129,11 @@ export default function FamiliarFeedPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-secondary/20">
-      <Header />
-
       <div className="flex flex-1">
         <FeedSidebar menuItems={menuItems} statsContent={statsContent} />
 
         <div className="flex-1 lg:ml-64">
-          {/* Top Bar com perfil */}
-          <div className="bg-card border-b border-border">
+          <div className="fixed top-0 right-0 left-0 lg:left-64 bg-card border-b border-border z-30">
             <div className="container mx-auto px-4 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
@@ -164,25 +146,11 @@ export default function FamiliarFeedPage() {
                     <p className="text-sm text-muted-foreground">Familiar</p>
                   </div>
                 </div>
-
-                <div className="hidden md:flex items-center gap-2">
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Bell className="w-5 h-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <MessageSquare className="w-5 h-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                    <Link href="/familiar/perfil">
-                      <Settings className="w-5 h-5" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
 
-          <div className="py-8 pb-24 lg:pb-8">
+          <div className="pt-20 py-8 pb-24 lg:pb-8">
             <div className="container mx-auto px-4">
               <main>
                 {/* Header e Busca */}
@@ -291,7 +259,6 @@ export default function FamiliarFeedPage() {
                               Ver Perfil Completo
                             </Button>
                             <Button className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                              <MessageSquare className="w-4 h-4 mr-2" />
                               Entrar em Contato
                             </Button>
                           </div>

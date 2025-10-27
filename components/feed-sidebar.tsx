@@ -4,7 +4,7 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { LogOut, type LucideIcon } from "lucide-react"
+import { LogOut, Settings, type LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface MenuItem {
@@ -51,6 +51,13 @@ export function FeedSidebar({ menuItems, statsContent }: FeedSidebarProps) {
                 <span>{item.label}</span>
               </Link>
             ))}
+            <Link
+              href={menuItems[0]?.href.includes("cuidador") ? "/cuidador/configuracoes" : "/familiar/configuracoes"}
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+            >
+              <Settings className="w-5 h-5 flex-shrink-0" />
+              <span>Configurações</span>
+            </Link>
           </nav>
 
           {/* Stats Content */}
@@ -74,7 +81,7 @@ export function FeedSidebar({ menuItems, statsContent }: FeedSidebarProps) {
 
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50 safe-area-pb">
         <div className="flex items-center justify-around px-2 py-3">
-          {menuItems.slice(0, 4).map((item) => (
+          {menuItems.slice(0, 3).map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -87,6 +94,13 @@ export function FeedSidebar({ menuItems, statsContent }: FeedSidebarProps) {
               <span className="text-xs font-medium">{item.label}</span>
             </Link>
           ))}
+          <Link
+            href={menuItems[0]?.href.includes("cuidador") ? "/cuidador/configuracoes" : "/familiar/configuracoes"}
+            className="flex flex-col items-center gap-1 p-2 rounded-xl transition-colors min-w-[60px] text-muted-foreground"
+          >
+            <Settings className="w-5 h-5" />
+            <span className="text-xs font-medium">Config</span>
+          </Link>
           <Link
             href="/"
             className="flex flex-col items-center gap-1 p-2 rounded-xl transition-colors min-w-[60px] text-destructive"
