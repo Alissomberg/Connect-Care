@@ -6,11 +6,6 @@ Backend completo da plataforma VIRLA desenvolvido em Next.js com API Routes, MyS
 
 ## Configuração
 
-### 1. Instalar Dependências
-
-\`\`\`bash
-npm install
-\`\`\`
 
 ### 2. Configurar Banco de Dados
 
