@@ -9,15 +9,6 @@ Backend completo da plataforma VIRLA desenvolvido em Next.js com API Routes, MyS
 
 ### 2. Configurar Banco de Dados
 
-Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
-
-\`\`\`env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=sua_senha
-DB_NAME=virla_db
-JWT_SECRET=seu_secret_key_muito_seguro
-\`\`\`
 
 ### 3. Inicializar Banco de Dados
 

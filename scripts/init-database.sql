@@ -2,10 +2,10 @@
 -- Execute este script para criar todas as tabelas necessárias
 
 -- Criar banco de dados
-CREATE DATABASE IF NOT EXISTS virla_db;
-USE virla_db;
+CREATE DATABASE IF NOT EXISTS cuidadordb;
+USE cuidadordb;
 
--- Tabela de Perfil Familiar
+
 CREATE TABLE IF NOT EXISTS Perfil_familiar (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Perfil_familiar (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Tabela de Perfil Cuidador
+
 CREATE TABLE IF NOT EXISTS Perfil_cuidador (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS Perfil_cuidador (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Tabela de Perfil Administrador
 CREATE TABLE IF NOT EXISTS Perfil_administrador (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
@@ -44,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Perfil_administrador (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Tabela de Mensagens
+
 CREATE TABLE IF NOT EXISTS Mensagem (
   id INT AUTO_INCREMENT PRIMARY KEY,
   conteudo TEXT NOT NULL,
@@ -58,7 +57,7 @@ CREATE TABLE IF NOT EXISTS Mensagem (
   INDEX idx_data (data_envio)
 );
 
--- Tabela de Solicitação e Propostas
+
 CREATE TABLE IF NOT EXISTS Solicitacao_Proposta (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_remetente INT NOT NULL,
@@ -75,7 +74,7 @@ CREATE TABLE IF NOT EXISTS Solicitacao_Proposta (
   INDEX idx_status (status)
 );
 
--- Tabela de Agendamento de Serviços
+
 CREATE TABLE IF NOT EXISTS Agendamento_servico (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_proposta INT,
@@ -91,7 +90,7 @@ CREATE TABLE IF NOT EXISTS Agendamento_servico (
   INDEX idx_data (data_inicio)
 );
 
--- Tabela de Pagamentos
+
 CREATE TABLE IF NOT EXISTS Pagamento (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_agendamento INT,
@@ -104,7 +103,7 @@ CREATE TABLE IF NOT EXISTS Pagamento (
   INDEX idx_status (status)
 );
 
--- Tabela de Avaliações
+
 CREATE TABLE IF NOT EXISTS Avaliacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_cuidador INT,
